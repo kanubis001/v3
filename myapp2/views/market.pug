@@ -1,0 +1,220 @@
+extends layout
+
+block content
+    script(src="https://code.jquery.com/jquery-1.12.4.min.js")
+    script.
+        function sellyon(){
+            var sell_processForm=document.sell_processForm;
+            var price=document.getElementById('sell_price').value;
+            var quantity=document.getElementById('quantity').value;
+            var total=price*quantity;
+            var result=confirm("총 "+total+"원 | "+price+"원에 " +quantity+"개를 매도하시겠습니까?");
+            if(result){
+                sell_processForm.submit();
+            }else{
+                alert('no');
+            }          
+        }
+        function buyyon(){
+            var buy_processForm=document.buy_processForm;
+            var price=document.getElementById('sell_price').value;
+            var quantity=document.getElementById('quantity').value;
+            var total=price*quantity;
+            var result=confirm("총 "+total+"원 | "+price+"원에 " +quantity+"개를 매수하시겠습니까?");
+            if(result){
+                buy_processForm.submit();
+            }else{
+                alert('no');
+            }          
+        }              
+    style.
+        table {
+        border: 1px solid black;
+        border-collapse: collapse;
+        min-width: 610px;
+        }
+        table th, table td {
+        border: 1px solid black;
+        }
+    main(class="main")
+        section(class="topWrap")
+        section(class="leftWrap")
+            div
+                form#list-form 
+                    fieldset
+                        legend 검색
+                        div#searchDiv
+                            select(name="searchingCategory", id="searchingCategory")
+                                option(value="name") 종목명
+                                option(value="num", selected="selected") 종목번호
+                            input(type="text",name="contents", id="contents",size="10",placeholder="")
+                            button(type="submit") 검색
+            br
+            div
+            fieldset
+                table#list-list
+                    thead
+                        tr
+                        th 종목명
+                        th 종목코드
+                        th 시장구분
+                    tbody
+                        tr
+                        td
+                        td
+                        td
+                        //- for list in _res
+                        //-     tr
+                        //-     td= list.CompanyName
+                        //-     td= list.StockCode
+                        //-     td= list.Market
+                br
+                div
+                table#detail-list
+                    thead
+                        tr
+                        th 업종
+                        th 주요제품
+                        th 결산월
+                        th 홈페이지
+                        th 대표
+                        th 상장일
+                    tbody
+                        tr
+                        td 
+                        td 
+                        td 
+                        td 
+                        td 
+                        td 
+                br
+                table#moredetail-list
+                    tr
+                        th(id="moreDetail", colspan='4') 세부항목
+                    tr(id="item_t_tr") 
+                        th(id="item_t_th") 시가
+                        td(id="MarketPrice")
+                        th(id="item_t_th") 상한가
+                        td(id="HighestPrice")
+                    tr(id="item_t_tr")
+                        th(id="item_t_th") 고가
+                        td(id="HighPrice")
+                        th(id="item_t_th") 하한가
+                        td(id="LowestPrice")
+                    tr(id="item_t_tr")
+                        th(id="item_t_th") 저가
+                        td(id="LowPrice")
+                        th(id="item_t_th") 액면가
+                        td(id="OriginPrice")
+                    tr(id="item_t_tr")
+                        th(id="item_t_th") PER
+                        td(id="Per")
+                        th(id="item_t_th") 52주 최고
+                        td(id="52wHigh")
+                    tr(id="item_t_tr")
+                        th(id="item_t_th") 상장주식수
+                        td(id="SangjangAmount")
+                        th(id="item_t_th") 52주 최저
+                        td(id="52wLow")
+                        script(src="/javascripts/search_proc.js")
+            //- div(class="searching")
+            //-     div(class="input_searching")
+            //-     form(action="/market/searching", method="post")
+            //-         select(name="searhingCategory")
+            //-             option(value="name") 종목명
+            //-             option(value="num", selected="selected") 종목번호
+            //-         input(type="text",name="contents", size="10")
+            //-         input(type="submit", id="btn_search", value="검색")
+            //-     div(class="list_stocks", style="max-height:20px")
+            //-     div(class="detail_list", style="max-height:20px")
+            //-     block search
+            div(class='itemQuantiy')
+                //- block detail
+                //-     span 종목/수량1
+                //-     table(class="item_t" border="1px")
+                //-         tr(id="item_t_tr") 
+                //-             th(id="item_t_th") 시가
+                //-             td 
+                //-             th(id="item_t_th") 상한가
+                //-             td(colspan="2")
+                //-         tr(id="item_t_tr")
+                //-             th(id="item_t_th") 고가
+                //-             td 
+                //-             th(id="item_t_th") 하한가
+                //-             td(colspan="2")
+                //-         tr(id="item_t_tr")
+                //-             th(id="item_t_th") 저가
+                //-             td 
+                //-             th(id="item_t_th") 액면가
+                //-             td(colspan="2") 
+                //-         tr(id="item_t_tr")
+                //-             th(id="item_t_th") PER
+                //-             td 
+                //-             th(id="item_t_th", rowspan="2", "border-bottom:1px solid") 52주
+                //-             |(종가기준)
+                //-             th(id="item_t_th") 최고
+                //-             td 
+                //-         tr(id="item_t_tr")
+                //-             th(id="item_t_th") 상장주식수
+                //-             td 
+                //-             th(id="item_t_th") 최저
+                //-             td 
+            div(class="jumoon")
+                div
+                ul(class="button_buy_sell")
+                    li(class="button_buy_sell_li")                                
+                        a(id="button_buy_sell_li_a_buy") 매수
+                        //- a(href="/market/buysell/buy",class="button_buy_sell_li_a_buy") 매수
+                    li(class="button_buy_sell_li")
+                        a(id="button_buy_sell_li_a_sell") 매도
+                        //- a(href="/market/buysell/sell", class="button_buy_sell_li_a_sell") 매도
+                    li(class="button_buy_sell_li")
+                        a(id="button_buy_sell_li_a_jumoon") 주문내역
+            div(id="buy_sell_parents")
+                div(id="buysell_contents")
+                    form(name="buy_processForm" action="/buy_process", method="post")
+                        input(type="text", readonly,  value='항목')
+                        input(type="text", maxlength="10", min="0", autofocus, name="buy", id="buy_price",style="background-color:rgba(255, 121, 121, 0.788)", placeholder="가격", pattern="[0-9]+", oninvalid="invalid", oninput="invalid", required)
+                        input(type="text", maxlength="10", min="0", autofocus, name="quantity", id="quantity",style="background-color:rgba(255, 121, 121, 0.788)", placeholder="수량", pattern="[0-9]+", oninvalid="invalid", oninput="invalid", required)
+                        input(type="button", value="매수", onclick="buyyon()")
+                div(id="maedo")
+        script(src="/javascripts/market_script.js")
+        section(class="rightWrap") 
+            div(class="jongmokSearch")
+                
+            div(class="hoga")
+                div(class="hoga")
+                    span 호가
+                    table(class="hoga_t" )
+                
+                        tr
+                            th 매도
+                            th 호가
+                            th 매수
+                        tr 
+                            td 1
+                            td 2
+                            td 3
+                        tr 
+                            td 4
+                            td 5
+                            td 6
+            div(class="chaegyul")
+                div(class="chaegyul")
+                    span 체결내역
+                    table(class="chaegyul_t")
+                        tr
+                            th 1
+                            th 1
+                            th 1
+                        tr 
+                            td 2
+                            td 2
+                            td 2
+                        tr 
+                            td 3
+                            td 3
+                            td 3
+    
+
+    

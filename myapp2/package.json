@@ -1,0 +1,26 @@
+{
+  "name": "myapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "date-utils": "^1.2.21",
+    "dateformat": "^3.0.3",
+    "debug": "~2.6.9",
+    "excel": "^1.0.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "krx-stock-api": "^1.0.0",
+    "morgan": "~1.9.1",
+    "multiparty": "^4.2.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "pug": "^3.0.0",
+    "sequelize": "^6.3.5",
+    "xmlhttprequest": "^1.8.0"
+  }
+}

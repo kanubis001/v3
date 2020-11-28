@@ -1,0 +1,31 @@
+extends market
+block detail
+    p 종수
+    table(class="item_t" border="1px")
+        tr(id="item_t_tr") 
+            th(id="item_t_th") 시가
+            td(id="get_output") #{mrk_price}
+            th(id="item_t_th") 상한가
+            td(colspan="2") #{highest_price}
+        tr(id="item_t_tr")
+            th(id="item_t_th") 고가
+            td #{high_price}
+            th(id="item_t_th") 하한가
+            td(colspan="2") #{lowest_price}
+        tr(id="item_t_tr")
+            th(id="item_t_th") 저가
+            td #{low_price}
+            th(id="item_t_th") 액면가
+            td(colspan="2") #{stock_price}
+        tr(id="item_t_tr")
+            th(id="item_t_th") PER
+            td #{per}
+            th(id="item_t_th", rowspan="2", "border-bottom:1px solid") 52주
+            |(종가기준)
+            th(id="item_t_th") 최고
+            td #{high52_price}
+        tr(id="item_t_tr")
+            th(id="item_t_th") 상장주식수
+            td #{amount}
+            th(id="item_t_th") 최저
+            td #{low52_price}

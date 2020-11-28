@@ -1,0 +1,25 @@
+extends market
+block buysell
+    script.
+        function sellyon(){
+            var sell_processForm=document.sell_processForm;
+            var price=document.getElementById('sell_price').value;
+            var quantity=document.getElementById('quantity').value;
+            var total=price*quantity;
+            var result=confirm("총 "+total+"원 | "+price+"원에 " +quantity+"개를 판매하겠습니까?");
+            if(result){
+                sell_processForm.submit();
+            }else{
+                alert('no');
+            }          
+        }        
+    div(id="sellA", style="margin-top:10px")
+        p 주문 내역
+        form(name="sell_processForm" action="/sell_process", method="post")
+            input(type="text", readonly,  value='항목')
+            input(type="text", maxlength="10", min="0", autofocus, name="sell", id="sell_price", placeholder="가격", pattern="[0-9]+", oninvalid="invalid", oninput="invalid", required)
+            input(type="text", maxlength="10", min="0", autofocus, name="quantity", id="quantity", placeholder="수량", pattern="[0-9]+", oninvalid="invalid", oninput="invalid", required)
+            input(type="button", value="매도", onclick="sellyon()")
+ 
+
+    

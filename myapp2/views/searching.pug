@@ -1,0 +1,17 @@
+extends market
+
+block search
+    table  
+        tr
+            th 종목명
+            td #{name}
+        tr
+            th 종목코드
+            td #{code}
+            th 시장구분
+            td #{market}
+        tr
+
+    form(action=`/market/detail/${code}`, method="get")
+        input(type="submit", id="btn", value="실시간 종목/수량 검색")
+

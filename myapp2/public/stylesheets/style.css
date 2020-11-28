@@ -1,0 +1,106 @@
+body {
+  padding: 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #ffffff;
+}
+a {
+  color: #00B7FF;
+}
+div{
+  display: block;
+  background-color:rgb(224, 223, 223);  
+}
+section{
+  display: block;
+}
+input:invalid {
+  border: 2px solid rgb(255, 0, 0);
+}
+
+.button_buy_sell {
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+}
+#button_buy_sell_li {
+  float: left;
+}
+#button_buy_sell_li_a_buy, #button_buy_sell_li_a_jumoon{
+  display: inline-block;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+#button_buy_sell_li_a_buy:hover{
+  background-color: rgb(255, 0, 0);
+  color:rgb(255, 255, 255);
+  text-decoration: none;
+}
+#button_buy_sell_li_a_jumoon:hover{
+  background-color: rgb(0, 0, 0);
+  color:rgb(255, 255, 255);
+}
+#button_buy_sell_li_a_sell, .dropbtn {
+  display: inline-block; 
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.dropdown:hover, .dropbtn {
+  color:rgb(255, 255, 255);
+}
+#button_buy_sell_li, #button_buy_sell_li_a_sell:hover {
+  background-color: rgb(25, 0, 255);
+  color:rgb(255, 255, 255);
+}
+.main{
+  margin:auto;
+  margin-top:10px;
+  width:90%;
+  min-width: 650px;
+}
+.leftWrap,#searchDiv{
+  float:left;
+  margin:auto;
+  width: 68%;
+  min-width:442px;
+  max-width:650px;
+  margin-right: 5px;
+}
+.rightWrap{
+  float: right;
+  margin:auto;
+  width: 30%;
+  min-width: 195px;
+  margin-left:5px;
+}
+#buy_sell_parents{
+  min-width:580px;
+}
+.chaegyul, .hoga, .jongmokSearch{
+  margin-top:5px;
+}
+.hoga_t, .chaegyul_t, .buy_sell_t{
+  width :100%;  
+}
+.item_t{
+  width :60%;  
+}
+.jumoon{
+  margin-top:5px;
+  width : 100%;
+}
+#item_t_tr{
+  height:40px;
+}
+#item_t_th{
+  width:20%;
+}
+#_click:hover{
+  background-color: rgb(0, 139, 253);
+  color:rgb(255, 255, 255);
+}
